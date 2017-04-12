@@ -26,5 +26,7 @@
         <property name="prefix" value="/WEB-INF/view/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
-
-</beans>
+    <bean class="com.springdemo.config.MySwaggerConfig"></bean>
+    
+<!-- 	<bean class="com.springdemo.config.MySwaggerConfig" />
+ --></beans>
