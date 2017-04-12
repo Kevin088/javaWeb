@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dfhe.com.dao.ItemDao">
+	<select id="getItemList" resultType="cn.dfhe.com.pojo.Item">
+		SELECT * FROM orders
+	</select>
+	<select id="searchItemList" parameterType="String" resultType="cn.dfhe.com.pojo.Item">
+		SELECT * FROM orders where name like "%"#{name}"%"
+	</select>
+	<select id="findItemById" parameterType="int" resultType="cn.dfhe.com.pojo.Item">
+		SELECT * FROM orders where id=#{id}
+	</select>
+	<update id="updateItem" parameterType="cn.dfhe.com.pojo.Item">
+		update orders
+		<set>
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="price!=null">
+				price=#{price},
+			</if>
+			<if test="detail!=null">
+				detail=#{detail},
+			</if>
+			<if test="createtime!=null">
+				createtime=#{createtime},
+			</if>
+		</set>
+		where id=#{id}
+	</update>
+	<delete id="deleteItem" parameterType="int">
+		DELETE FROM orders WHERE id = #{id}
+	</delete>
+	<insert id="insertItem" parameterType="cn.dfhe.com.pojo.Item">
+		INSERT INTO orders (NAME,price,detail,createtime) 
+		VALUES(#{name},#{price},#{detail},#{createtime})
+	</insert>
+</mapper>
