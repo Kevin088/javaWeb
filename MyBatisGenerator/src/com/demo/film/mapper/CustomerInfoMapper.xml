@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.film.dao.CustomerInfoMapper">
+  <resultMap id="BaseResultMap" type="com.demo.film.model.CustomerInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="iscompute" jdbcType="BIT" property="iscompute" />
+    <result column="broadband" jdbcType="BIT" property="broadband" />
+    <result column="broadbandSatisfy" jdbcType="BIT" property="broadbandsatisfy" />
+    <result column="isBroadbandFusion" jdbcType="BIT" property="isbroadbandfusion" />
+    <result column="broadbandPrice" jdbcType="REAL" property="broadbandprice" />
+    <result column="broadbandEndTime" jdbcType="VARCHAR" property="broadbandendtime" />
+    <result column="tv" jdbcType="BIT" property="tv" />
+    <result column="tvSatisfy" jdbcType="BIT" property="tvsatisfy" />
+    <result column="tvPrice" jdbcType="REAL" property="tvprice" />
+    <result column="tvEndTime" jdbcType="VARCHAR" property="tvendtime" />
+    <result column="district_id" jdbcType="BIGINT" property="districtId" />
+    <result column="username_id" jdbcType="BIGINT" property="usernameId" />
+    <result column="datetime" jdbcType="TIMESTAMP" property="datetime" />
+    <result column="isdelete" jdbcType="BIT" property="isdelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, telephone, address, iscompute, broadband, broadbandSatisfy, isBroadbandFusion, 
+    broadbandPrice, broadbandEndTime, tv, tvSatisfy, tvPrice, tvEndTime, district_id, 
+    username_id, datetime, isdelete
+  </sql>
+  <select id="selectByExample" parameterType="com.demo.film.model.CustomerInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from customer_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from customer_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from customer_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.demo.film.model.CustomerInfoExample">
+    delete from customer_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.demo.film.model.CustomerInfo">
+    insert into customer_info (id, name, telephone, 
+      address, iscompute, broadband, 
+      broadbandSatisfy, isBroadbandFusion, broadbandPrice, 
+      broadbandEndTime, tv, tvSatisfy, 
+      tvPrice, tvEndTime, district_id, 
+      username_id, datetime, isdelete
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{iscompute,jdbcType=BIT}, #{broadband,jdbcType=BIT}, 
+      #{broadbandsatisfy,jdbcType=BIT}, #{isbroadbandfusion,jdbcType=BIT}, #{broadbandprice,jdbcType=REAL}, 
+      #{broadbandendtime,jdbcType=VARCHAR}, #{tv,jdbcType=BIT}, #{tvsatisfy,jdbcType=BIT}, 
+      #{tvprice,jdbcType=REAL}, #{tvendtime,jdbcType=VARCHAR}, #{districtId,jdbcType=BIGINT}, 
+      #{usernameId,jdbcType=BIGINT}, #{datetime,jdbcType=TIMESTAMP}, #{isdelete,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.film.model.CustomerInfo">
+    insert into customer_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="iscompute != null">
+        iscompute,
+      </if>
+      <if test="broadband != null">
+        broadband,
+      </if>
+      <if test="broadbandsatisfy != null">
+        broadbandSatisfy,
+      </if>
+      <if test="isbroadbandfusion != null">
+        isBroadbandFusion,
+      </if>
+      <if test="broadbandprice != null">
+        broadbandPrice,
+      </if>
+      <if test="broadbandendtime != null">
+        broadbandEndTime,
+      </if>
+      <if test="tv != null">
+        tv,
+      </if>
+      <if test="tvsatisfy != null">
+        tvSatisfy,
+      </if>
+      <if test="tvprice != null">
+        tvPrice,
+      </if>
+      <if test="tvendtime != null">
+        tvEndTime,
+      </if>
+      <if test="districtId != null">
+        district_id,
+      </if>
+      <if test="usernameId != null">
+        username_id,
+      </if>
+      <if test="datetime != null">
+        datetime,
+      </if>
+      <if test="isdelete != null">
+        isdelete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="iscompute != null">
+        #{iscompute,jdbcType=BIT},
+      </if>
+      <if test="broadband != null">
+        #{broadband,jdbcType=BIT},
+      </if>
+      <if test="broadbandsatisfy != null">
+        #{broadbandsatisfy,jdbcType=BIT},
+      </if>
+      <if test="isbroadbandfusion != null">
+        #{isbroadbandfusion,jdbcType=BIT},
+      </if>
+      <if test="broadbandprice != null">
+        #{broadbandprice,jdbcType=REAL},
+      </if>
+      <if test="broadbandendtime != null">
+        #{broadbandendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="tv != null">
+        #{tv,jdbcType=BIT},
+      </if>
+      <if test="tvsatisfy != null">
+        #{tvsatisfy,jdbcType=BIT},
+      </if>
+      <if test="tvprice != null">
+        #{tvprice,jdbcType=REAL},
+      </if>
+      <if test="tvendtime != null">
+        #{tvendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="districtId != null">
+        #{districtId,jdbcType=BIGINT},
+      </if>
+      <if test="usernameId != null">
+        #{usernameId,jdbcType=BIGINT},
+      </if>
+      <if test="datetime != null">
+        #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.demo.film.model.CustomerInfoExample" resultType="java.lang.Integer">
+    select count(*) from customer_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update customer_info
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephone != null">
+        telephone = #{record.telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iscompute != null">
+        iscompute = #{record.iscompute,jdbcType=BIT},
+      </if>
+      <if test="record.broadband != null">
+        broadband = #{record.broadband,jdbcType=BIT},
+      </if>
+      <if test="record.broadbandsatisfy != null">
+        broadbandSatisfy = #{record.broadbandsatisfy,jdbcType=BIT},
+      </if>
+      <if test="record.isbroadbandfusion != null">
+        isBroadbandFusion = #{record.isbroadbandfusion,jdbcType=BIT},
+      </if>
+      <if test="record.broadbandprice != null">
+        broadbandPrice = #{record.broadbandprice,jdbcType=REAL},
+      </if>
+      <if test="record.broadbandendtime != null">
+        broadbandEndTime = #{record.broadbandendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tv != null">
+        tv = #{record.tv,jdbcType=BIT},
+      </if>
+      <if test="record.tvsatisfy != null">
+        tvSatisfy = #{record.tvsatisfy,jdbcType=BIT},
+      </if>
+      <if test="record.tvprice != null">
+        tvPrice = #{record.tvprice,jdbcType=REAL},
+      </if>
+      <if test="record.tvendtime != null">
+        tvEndTime = #{record.tvendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.districtId != null">
+        district_id = #{record.districtId,jdbcType=BIGINT},
+      </if>
+      <if test="record.usernameId != null">
+        username_id = #{record.usernameId,jdbcType=BIGINT},
+      </if>
+      <if test="record.datetime != null">
+        datetime = #{record.datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isdelete != null">
+        isdelete = #{record.isdelete,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update customer_info
+    set id = #{record.id,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      telephone = #{record.telephone,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      iscompute = #{record.iscompute,jdbcType=BIT},
+      broadband = #{record.broadband,jdbcType=BIT},
+      broadbandSatisfy = #{record.broadbandsatisfy,jdbcType=BIT},
+      isBroadbandFusion = #{record.isbroadbandfusion,jdbcType=BIT},
+      broadbandPrice = #{record.broadbandprice,jdbcType=REAL},
+      broadbandEndTime = #{record.broadbandendtime,jdbcType=VARCHAR},
+      tv = #{record.tv,jdbcType=BIT},
+      tvSatisfy = #{record.tvsatisfy,jdbcType=BIT},
+      tvPrice = #{record.tvprice,jdbcType=REAL},
+      tvEndTime = #{record.tvendtime,jdbcType=VARCHAR},
+      district_id = #{record.districtId,jdbcType=BIGINT},
+      username_id = #{record.usernameId,jdbcType=BIGINT},
+      datetime = #{record.datetime,jdbcType=TIMESTAMP},
+      isdelete = #{record.isdelete,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.film.model.CustomerInfo">
+    update customer_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="iscompute != null">
+        iscompute = #{iscompute,jdbcType=BIT},
+      </if>
+      <if test="broadband != null">
+        broadband = #{broadband,jdbcType=BIT},
+      </if>
+      <if test="broadbandsatisfy != null">
+        broadbandSatisfy = #{broadbandsatisfy,jdbcType=BIT},
+      </if>
+      <if test="isbroadbandfusion != null">
+        isBroadbandFusion = #{isbroadbandfusion,jdbcType=BIT},
+      </if>
+      <if test="broadbandprice != null">
+        broadbandPrice = #{broadbandprice,jdbcType=REAL},
+      </if>
+      <if test="broadbandendtime != null">
+        broadbandEndTime = #{broadbandendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="tv != null">
+        tv = #{tv,jdbcType=BIT},
+      </if>
+      <if test="tvsatisfy != null">
+        tvSatisfy = #{tvsatisfy,jdbcType=BIT},
+      </if>
+      <if test="tvprice != null">
+        tvPrice = #{tvprice,jdbcType=REAL},
+      </if>
+      <if test="tvendtime != null">
+        tvEndTime = #{tvendtime,jdbcType=VARCHAR},
+      </if>
+      <if test="districtId != null">
+        district_id = #{districtId,jdbcType=BIGINT},
+      </if>
+      <if test="usernameId != null">
+        username_id = #{usernameId,jdbcType=BIGINT},
+      </if>
+      <if test="datetime != null">
+        datetime = #{datetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null">
+        isdelete = #{isdelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.film.model.CustomerInfo">
+    update customer_info
+    set name = #{name,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      iscompute = #{iscompute,jdbcType=BIT},
+      broadband = #{broadband,jdbcType=BIT},
+      broadbandSatisfy = #{broadbandsatisfy,jdbcType=BIT},
+      isBroadbandFusion = #{isbroadbandfusion,jdbcType=BIT},
+      broadbandPrice = #{broadbandprice,jdbcType=REAL},
+      broadbandEndTime = #{broadbandendtime,jdbcType=VARCHAR},
+      tv = #{tv,jdbcType=BIT},
+      tvSatisfy = #{tvsatisfy,jdbcType=BIT},
+      tvPrice = #{tvprice,jdbcType=REAL},
+      tvEndTime = #{tvendtime,jdbcType=VARCHAR},
+      district_id = #{districtId,jdbcType=BIGINT},
+      username_id = #{usernameId,jdbcType=BIGINT},
+      datetime = #{datetime,jdbcType=TIMESTAMP},
+      isdelete = #{isdelete,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
