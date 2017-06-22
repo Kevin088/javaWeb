@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.film.dao.SysuserMapper">
+  <resultMap id="BaseResultMap" type="com.demo.film.model.Sysuser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="district_id" jdbcType="INTEGER" property="districtId" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="MarryInfo" jdbcType="VARCHAR" property="marryinfo" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="xueli" jdbcType="VARCHAR" property="xueli" />
+    <result column="zzmm" jdbcType="VARCHAR" property="zzmm" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="telephone_dianxin" jdbcType="VARCHAR" property="telephoneDianxin" />
+    <result column="webnet" jdbcType="VARCHAR" property="webnet" />
+    <result column="chengbaopianqu" jdbcType="VARCHAR" property="chengbaopianqu" />
+    <result column="workTimeStart" jdbcType="VARCHAR" property="worktimestart" />
+    <result column="workTimeEnd" jdbcType="VARCHAR" property="worktimeend" />
+    <result column="doorCode" jdbcType="VARCHAR" property="doorcode" />
+    <result column="cashPledge" jdbcType="VARCHAR" property="cashpledge" />
+    <result column="isdelete" jdbcType="BIT" property="isdelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, username, password, role_id, district_id, sex, birthday, MarryInfo, school, xueli, 
+    zzmm, telephone, telephone_dianxin, webnet, chengbaopianqu, workTimeStart, workTimeEnd, 
+    doorCode, cashPledge, isdelete
+  </sql>
+  <select id="selectByExample" parameterType="com.demo.film.model.SysuserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sysuser
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sysuser
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sysuser
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.demo.film.model.SysuserExample">
+    delete from sysuser
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.demo.film.model.Sysuser">
+    insert into sysuser (id, username, password, 
+      role_id, district_id, sex, 
+      birthday, MarryInfo, school, 
+      xueli, zzmm, telephone, 
+      telephone_dianxin, webnet, chengbaopianqu, 
+      workTimeStart, workTimeEnd, doorCode, 
+      cashPledge, isdelete)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{roleId,jdbcType=INTEGER}, #{districtId,jdbcType=INTEGER}, #{sex,jdbcType=BIT}, 
+      #{birthday,jdbcType=VARCHAR}, #{marryinfo,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
+      #{xueli,jdbcType=VARCHAR}, #{zzmm,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{telephoneDianxin,jdbcType=VARCHAR}, #{webnet,jdbcType=VARCHAR}, #{chengbaopianqu,jdbcType=VARCHAR}, 
+      #{worktimestart,jdbcType=VARCHAR}, #{worktimeend,jdbcType=VARCHAR}, #{doorcode,jdbcType=VARCHAR}, 
+      #{cashpledge,jdbcType=VARCHAR}, #{isdelete,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.film.model.Sysuser">
+    insert into sysuser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="districtId != null">
+        district_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="marryinfo != null">
+        MarryInfo,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="xueli != null">
+        xueli,
+      </if>
+      <if test="zzmm != null">
+        zzmm,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="telephoneDianxin != null">
+        telephone_dianxin,
+      </if>
+      <if test="webnet != null">
+        webnet,
+      </if>
+      <if test="chengbaopianqu != null">
+        chengbaopianqu,
+      </if>
+      <if test="worktimestart != null">
+        workTimeStart,
+      </if>
+      <if test="worktimeend != null">
+        workTimeEnd,
+      </if>
+      <if test="doorcode != null">
+        doorCode,
+      </if>
+      <if test="cashpledge != null">
+        cashPledge,
+      </if>
+      <if test="isdelete != null">
+        isdelete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="districtId != null">
+        #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="marryinfo != null">
+        #{marryinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null">
+        #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="zzmm != null">
+        #{zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="telephoneDianxin != null">
+        #{telephoneDianxin,jdbcType=VARCHAR},
+      </if>
+      <if test="webnet != null">
+        #{webnet,jdbcType=VARCHAR},
+      </if>
+      <if test="chengbaopianqu != null">
+        #{chengbaopianqu,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimestart != null">
+        #{worktimestart,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimeend != null">
+        #{worktimeend,jdbcType=VARCHAR},
+      </if>
+      <if test="doorcode != null">
+        #{doorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cashpledge != null">
+        #{cashpledge,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.demo.film.model.SysuserExample" resultType="java.lang.Integer">
+    select count(*) from sysuser
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sysuser
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleId != null">
+        role_id = #{record.roleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.districtId != null">
+        district_id = #{record.districtId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=BIT},
+      </if>
+      <if test="record.birthday != null">
+        birthday = #{record.birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marryinfo != null">
+        MarryInfo = #{record.marryinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.school != null">
+        school = #{record.school,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xueli != null">
+        xueli = #{record.xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzmm != null">
+        zzmm = #{record.zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephone != null">
+        telephone = #{record.telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephoneDianxin != null">
+        telephone_dianxin = #{record.telephoneDianxin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.webnet != null">
+        webnet = #{record.webnet,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chengbaopianqu != null">
+        chengbaopianqu = #{record.chengbaopianqu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktimestart != null">
+        workTimeStart = #{record.worktimestart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktimeend != null">
+        workTimeEnd = #{record.worktimeend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doorcode != null">
+        doorCode = #{record.doorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cashpledge != null">
+        cashPledge = #{record.cashpledge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdelete != null">
+        isdelete = #{record.isdelete,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sysuser
+    set id = #{record.id,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      role_id = #{record.roleId,jdbcType=INTEGER},
+      district_id = #{record.districtId,jdbcType=INTEGER},
+      sex = #{record.sex,jdbcType=BIT},
+      birthday = #{record.birthday,jdbcType=VARCHAR},
+      MarryInfo = #{record.marryinfo,jdbcType=VARCHAR},
+      school = #{record.school,jdbcType=VARCHAR},
+      xueli = #{record.xueli,jdbcType=VARCHAR},
+      zzmm = #{record.zzmm,jdbcType=VARCHAR},
+      telephone = #{record.telephone,jdbcType=VARCHAR},
+      telephone_dianxin = #{record.telephoneDianxin,jdbcType=VARCHAR},
+      webnet = #{record.webnet,jdbcType=VARCHAR},
+      chengbaopianqu = #{record.chengbaopianqu,jdbcType=VARCHAR},
+      workTimeStart = #{record.worktimestart,jdbcType=VARCHAR},
+      workTimeEnd = #{record.worktimeend,jdbcType=VARCHAR},
+      doorCode = #{record.doorcode,jdbcType=VARCHAR},
+      cashPledge = #{record.cashpledge,jdbcType=VARCHAR},
+      isdelete = #{record.isdelete,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.film.model.Sysuser">
+    update sysuser
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="districtId != null">
+        district_id = #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="marryinfo != null">
+        MarryInfo = #{marryinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null">
+        xueli = #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="zzmm != null">
+        zzmm = #{zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="telephoneDianxin != null">
+        telephone_dianxin = #{telephoneDianxin,jdbcType=VARCHAR},
+      </if>
+      <if test="webnet != null">
+        webnet = #{webnet,jdbcType=VARCHAR},
+      </if>
+      <if test="chengbaopianqu != null">
+        chengbaopianqu = #{chengbaopianqu,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimestart != null">
+        workTimeStart = #{worktimestart,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimeend != null">
+        workTimeEnd = #{worktimeend,jdbcType=VARCHAR},
+      </if>
+      <if test="doorcode != null">
+        doorCode = #{doorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cashpledge != null">
+        cashPledge = #{cashpledge,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        isdelete = #{isdelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.film.model.Sysuser">
+    update sysuser
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      district_id = #{districtId,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=BIT},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      MarryInfo = #{marryinfo,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      xueli = #{xueli,jdbcType=VARCHAR},
+      zzmm = #{zzmm,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      telephone_dianxin = #{telephoneDianxin,jdbcType=VARCHAR},
+      webnet = #{webnet,jdbcType=VARCHAR},
+      chengbaopianqu = #{chengbaopianqu,jdbcType=VARCHAR},
+      workTimeStart = #{worktimestart,jdbcType=VARCHAR},
+      workTimeEnd = #{worktimeend,jdbcType=VARCHAR},
+      doorCode = #{doorcode,jdbcType=VARCHAR},
+      cashPledge = #{cashpledge,jdbcType=VARCHAR},
+      isdelete = #{isdelete,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.demo.film.model.Sysuser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="district_id" jdbcType="INTEGER" property="districtId" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="MarryInfo" jdbcType="VARCHAR" property="marryinfo" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="xueli" jdbcType="VARCHAR" property="xueli" />
+    <result column="zzmm" jdbcType="VARCHAR" property="zzmm" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="telephone_dianxin" jdbcType="VARCHAR" property="telephoneDianxin" />
+    <result column="webnet" jdbcType="VARCHAR" property="webnet" />
+    <result column="chengbaopianqu" jdbcType="VARCHAR" property="chengbaopianqu" />
+    <result column="workTimeStart" jdbcType="VARCHAR" property="worktimestart" />
+    <result column="workTimeEnd" jdbcType="VARCHAR" property="worktimeend" />
+    <result column="doorCode" jdbcType="VARCHAR" property="doorcode" />
+    <result column="cashPledge" jdbcType="VARCHAR" property="cashpledge" />
+    <result column="isdelete" jdbcType="BIT" property="isdelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, username, password, role_id, district_id, sex, birthday, MarryInfo, school, xueli, 
+    zzmm, telephone, telephone_dianxin, webnet, chengbaopianqu, workTimeStart, workTimeEnd, 
+    doorCode, cashPledge, isdelete
+  </sql>
+  <select id="selectByExample" parameterType="com.demo.film.model.SysuserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sysuser
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sysuser
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sysuser
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.demo.film.model.SysuserExample">
+    delete from sysuser
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.demo.film.model.Sysuser">
+    insert into sysuser (id, username, password, 
+      role_id, district_id, sex, 
+      birthday, MarryInfo, school, 
+      xueli, zzmm, telephone, 
+      telephone_dianxin, webnet, chengbaopianqu, 
+      workTimeStart, workTimeEnd, doorCode, 
+      cashPledge, isdelete)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{roleId,jdbcType=INTEGER}, #{districtId,jdbcType=INTEGER}, #{sex,jdbcType=BIT}, 
+      #{birthday,jdbcType=VARCHAR}, #{marryinfo,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
+      #{xueli,jdbcType=VARCHAR}, #{zzmm,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{telephoneDianxin,jdbcType=VARCHAR}, #{webnet,jdbcType=VARCHAR}, #{chengbaopianqu,jdbcType=VARCHAR}, 
+      #{worktimestart,jdbcType=VARCHAR}, #{worktimeend,jdbcType=VARCHAR}, #{doorcode,jdbcType=VARCHAR}, 
+      #{cashpledge,jdbcType=VARCHAR}, #{isdelete,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.film.model.Sysuser">
+    insert into sysuser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="districtId != null">
+        district_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="marryinfo != null">
+        MarryInfo,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="xueli != null">
+        xueli,
+      </if>
+      <if test="zzmm != null">
+        zzmm,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="telephoneDianxin != null">
+        telephone_dianxin,
+      </if>
+      <if test="webnet != null">
+        webnet,
+      </if>
+      <if test="chengbaopianqu != null">
+        chengbaopianqu,
+      </if>
+      <if test="worktimestart != null">
+        workTimeStart,
+      </if>
+      <if test="worktimeend != null">
+        workTimeEnd,
+      </if>
+      <if test="doorcode != null">
+        doorCode,
+      </if>
+      <if test="cashpledge != null">
+        cashPledge,
+      </if>
+      <if test="isdelete != null">
+        isdelete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="districtId != null">
+        #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="marryinfo != null">
+        #{marryinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null">
+        #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="zzmm != null">
+        #{zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="telephoneDianxin != null">
+        #{telephoneDianxin,jdbcType=VARCHAR},
+      </if>
+      <if test="webnet != null">
+        #{webnet,jdbcType=VARCHAR},
+      </if>
+      <if test="chengbaopianqu != null">
+        #{chengbaopianqu,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimestart != null">
+        #{worktimestart,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimeend != null">
+        #{worktimeend,jdbcType=VARCHAR},
+      </if>
+      <if test="doorcode != null">
+        #{doorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cashpledge != null">
+        #{cashpledge,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.demo.film.model.SysuserExample" resultType="java.lang.Integer">
+    select count(*) from sysuser
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update sysuser
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roleId != null">
+        role_id = #{record.roleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.districtId != null">
+        district_id = #{record.districtId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=BIT},
+      </if>
+      <if test="record.birthday != null">
+        birthday = #{record.birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marryinfo != null">
+        MarryInfo = #{record.marryinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.school != null">
+        school = #{record.school,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xueli != null">
+        xueli = #{record.xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzmm != null">
+        zzmm = #{record.zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephone != null">
+        telephone = #{record.telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telephoneDianxin != null">
+        telephone_dianxin = #{record.telephoneDianxin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.webnet != null">
+        webnet = #{record.webnet,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chengbaopianqu != null">
+        chengbaopianqu = #{record.chengbaopianqu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktimestart != null">
+        workTimeStart = #{record.worktimestart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.worktimeend != null">
+        workTimeEnd = #{record.worktimeend,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doorcode != null">
+        doorCode = #{record.doorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cashpledge != null">
+        cashPledge = #{record.cashpledge,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdelete != null">
+        isdelete = #{record.isdelete,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update sysuser
+    set id = #{record.id,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      role_id = #{record.roleId,jdbcType=INTEGER},
+      district_id = #{record.districtId,jdbcType=INTEGER},
+      sex = #{record.sex,jdbcType=BIT},
+      birthday = #{record.birthday,jdbcType=VARCHAR},
+      MarryInfo = #{record.marryinfo,jdbcType=VARCHAR},
+      school = #{record.school,jdbcType=VARCHAR},
+      xueli = #{record.xueli,jdbcType=VARCHAR},
+      zzmm = #{record.zzmm,jdbcType=VARCHAR},
+      telephone = #{record.telephone,jdbcType=VARCHAR},
+      telephone_dianxin = #{record.telephoneDianxin,jdbcType=VARCHAR},
+      webnet = #{record.webnet,jdbcType=VARCHAR},
+      chengbaopianqu = #{record.chengbaopianqu,jdbcType=VARCHAR},
+      workTimeStart = #{record.worktimestart,jdbcType=VARCHAR},
+      workTimeEnd = #{record.worktimeend,jdbcType=VARCHAR},
+      doorCode = #{record.doorcode,jdbcType=VARCHAR},
+      cashPledge = #{record.cashpledge,jdbcType=VARCHAR},
+      isdelete = #{record.isdelete,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.film.model.Sysuser">
+    update sysuser
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="districtId != null">
+        district_id = #{districtId,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="marryinfo != null">
+        MarryInfo = #{marryinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="xueli != null">
+        xueli = #{xueli,jdbcType=VARCHAR},
+      </if>
+      <if test="zzmm != null">
+        zzmm = #{zzmm,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="telephoneDianxin != null">
+        telephone_dianxin = #{telephoneDianxin,jdbcType=VARCHAR},
+      </if>
+      <if test="webnet != null">
+        webnet = #{webnet,jdbcType=VARCHAR},
+      </if>
+      <if test="chengbaopianqu != null">
+        chengbaopianqu = #{chengbaopianqu,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimestart != null">
+        workTimeStart = #{worktimestart,jdbcType=VARCHAR},
+      </if>
+      <if test="worktimeend != null">
+        workTimeEnd = #{worktimeend,jdbcType=VARCHAR},
+      </if>
+      <if test="doorcode != null">
+        doorCode = #{doorcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cashpledge != null">
+        cashPledge = #{cashpledge,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        isdelete = #{isdelete,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.film.model.Sysuser">
+    update sysuser
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
+      district_id = #{districtId,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=BIT},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      MarryInfo = #{marryinfo,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      xueli = #{xueli,jdbcType=VARCHAR},
+      zzmm = #{zzmm,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      telephone_dianxin = #{telephoneDianxin,jdbcType=VARCHAR},
+      webnet = #{webnet,jdbcType=VARCHAR},
+      chengbaopianqu = #{chengbaopianqu,jdbcType=VARCHAR},
+      workTimeStart = #{worktimestart,jdbcType=VARCHAR},
+      workTimeEnd = #{worktimeend,jdbcType=VARCHAR},
+      doorCode = #{doorcode,jdbcType=VARCHAR},
+      cashPledge = #{cashpledge,jdbcType=VARCHAR},
+      isdelete = #{isdelete,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

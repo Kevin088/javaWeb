@@ -202,3 +202,96 @@
 2017-05-12 09:20:24,321 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace_server_javaweb02\javaWeb\MavenTest\src\main\resources
 2017-05-12 09:20:24,322 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2017-05-12 09:20:24,323 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace_server_javaweb02\javaWeb\MavenTest\src\test\resources
+2017-05-12 11:24:39,202 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2017-05-12 14:50:59,184 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2017-05-12 14:51:33,824 [Worker-66] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator
+2017-05-12 14:51:33,824 [Worker-66] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dmybatis-generator=generate  -B 
+2017-05-12 15:38:47,782 [Worker-81] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 15:38:48,257 [Worker-81] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:38:48,293 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-05-12 15:38:48,322 [Worker-81] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:38:48,322 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 15:39:00,288 [Worker-84] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 15:39:00,330 [Worker-84] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:39:00,349 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 15:39:00,351 [Worker-84] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:39:00,352 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 15:39:10,133 [Worker-81] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.1/maven-surefire-plugin-2.1.jar
+2017-05-12 15:39:11,765 [Worker-81] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-surefire-plugin/2.1/maven-surefire-plugin-2.1.jar
+2017-05-12 15:39:11,895 [Worker-81] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 15:39:11,921 [Worker-81] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:39:11,922 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 15:39:11,923 [Worker-81] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:39:11,923 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 15:45:53,800 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2017-05-12 15:52:13,083 [Worker-86] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator
+2017-05-12 15:52:13,084 [Worker-86] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2017-05-12 15:52:15,169 [Worker-88] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:52:15,170 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-05-12 15:52:15,204 [Worker-88] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 15:52:15,205 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:16:13,700 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:16:13,727 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace_server_javaweb02\javaWeb\MavenTest\src\main\resources
+2017-05-12 16:16:13,730 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:16:13,731 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace_server_javaweb02\javaWeb\MavenTest\src\test\resources
+2017-05-12 16:26:56,297 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 16:26:56,531 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:26:56,538 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-05-12 16:26:56,547 [Worker-1] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:26:56,548 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:27:10,601 [Worker-11] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 16:27:10,629 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:27:10,630 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:27:10,631 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:27:10,632 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:33:56,136 [Worker-13] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 16:33:56,278 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:33:56,279 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:33:56,280 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:33:56,280 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:33:57,509 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:33:57,513 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-05-12 16:33:57,516 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:33:57,516 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:35:19,988 [Worker-15] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 16:35:20,023 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:35:20,024 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:35:20,025 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:35:20,026 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:36:23,358 [Worker-14] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 16:36:23,394 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:36:23,395 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:36:23,396 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:36:23,397 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:36:39,097 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 16:36:39,131 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:36:39,132 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:36:39,132 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:36:39,133 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:36:46,601 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.demo.film:mybatis-generator:1.0-SNAPSHOT @ D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator\pom.xml.
+2017-05-12 16:36:46,634 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:36:46,635 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:36:46,635 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:36:46,636 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:39:50,375 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2017-05-12 16:40:31,873 [Worker-14] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator
+2017-05-12 16:40:31,874 [Worker-14] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B mybatis-generator:generate
+2017-05-12 16:40:49,434 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:40:49,435 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:40:49,437 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:40:49,438 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:51:03,152 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:51:03,152 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:51:03,153 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:51:03,154 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:51:16,800 [main] INFO  o.e.m2e.actions.ExecutePomAction - Using existing launch configuration
+2017-05-12 16:51:16,850 [Worker-10] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\workspace_server_javaweb02\javaWeb\MyBatisGenerator
+2017-05-12 16:51:16,850 [Worker-10] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B mybatis-generator:generate
+2017-05-12 16:51:43,190 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:51:43,191 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-05-12 16:51:43,192 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-12 16:51:43,192 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-06-22 15:08:03,813 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-06-22 15:08:03,829 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace_server_javaweb02\javaWeb\MavenTest\src\main\resources
+2017-06-22 15:08:03,831 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2017-06-22 15:08:03,831 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace_server_javaweb02\javaWeb\MavenTest\src\test\resources
